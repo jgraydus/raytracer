@@ -1,7 +1,7 @@
 module Image where
 
 import PPM
-import Vec3
+import Geomancy.Vec3
 
 data ImageInfo = ImageInfo { height :: Int, width :: Int }
 
@@ -15,8 +15,8 @@ imageToPPM i = PPM { rows, columns, pixels }
     rows = i.imageInfo.height
     columns = i.imageInfo.width
     pixels = map toPixel i.pixels
-    toPixel c = let r = floor $ 255.999 * c.x
-                    g = floor $ 255.999 * c.y
-                    b = floor $ 255.999 * c.z
-                in Pixel r g b
+    toPixel (WithVec3 x y z) = let r = floor $ 255.999 * x
+                                   g = floor $ 255.999 * y
+                                   b = floor $ 255.999 * z
+                               in Pixel r g b
 

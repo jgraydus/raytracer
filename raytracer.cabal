@@ -14,11 +14,11 @@ executable raytracer
         Image,
         PPM,
         Ray,
-        Render,
-        Vec3
+        Render
     build-depends:
         base ^>=4.18.2.0,
         containers,
+        geomancy,
         mtl,
         MonadRandom,
         random,

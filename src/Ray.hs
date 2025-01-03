@@ -1,11 +1,12 @@
 module Ray where
 
-import Vec3
+import Geomancy.Vec3
+import Geomancy.Vector
 
 type Point3 = Vec3
 
 data Ray = Ray { origin :: Point3, direction :: Vec3 }
 
-at :: Ray -> Double -> Point3
-at Ray { origin, direction } t = origin +: (direction *: t)
+at :: Ray -> Float -> Point3
+at Ray { origin, direction } t = origin + (t *^ direction)
 
